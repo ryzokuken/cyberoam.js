@@ -1,0 +1,21 @@
+{
+  "name": "cyberoam",
+  "version": "0.1.0",
+  "description": "A JavaScript library for accessing cyberoam",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryzokuken/cyberoam.js.git"
+  },
+  "author": "Ujjwal Sharma <usharma1998@gmail.com> (https://ryzokuken.github.io)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ryzokuken/cyberoam.js/issues"
+  },
+  "homepage": "https://github.com/ryzokuken/cyberoam.js#readme"
+}
