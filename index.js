@@ -4,10 +4,14 @@ const { parseString } = require('xml2js');
 const defaults = require('./defaults.json');
 
 class Cyberoam {
+  constructor(options) {
+    this.options = Object.assign({}, defaults, options);
+  }
+
   login(username, password) {
     const options = {
       method: 'POST',
-      url: defaults.loginURL,
+      url: this.options.loginURL,
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       form: { mode: '191', username, password }
     };
@@ -18,7 +22,7 @@ class Cyberoam {
           throw new Error(error);
         }
 
-        if (body.includes(defaults.loginMessage)) {
+        if (body.includes(this.options.loginMessage)) {
           resolve(body);
         } else {
           parseString(body, (err, result) => {
@@ -32,7 +36,7 @@ class Cyberoam {
   logout(username, password) {
     const options = {
       method: 'POST',
-      url: defaults.loginURL,
+      url: this.options.loginURL,
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       form: { mode: '193', username }
     };
@@ -43,7 +47,7 @@ class Cyberoam {
           throw new Error(error);
         }
 
-        if (body.includes(defaults.logoutMessage)) {
+        if (body.includes(this.options.logoutMessage)) {
           resolve(body);
         } else {
           reject(body);
@@ -55,7 +59,7 @@ class Cyberoam {
   checkLiveStatus(username) {
     const options = {
       method: 'GET',
-      url: defaults.liveURL,
+      url: this.options.liveURL,
       qs: { mode: '192', username }
     };
 
