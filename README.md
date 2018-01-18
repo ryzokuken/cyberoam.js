@@ -11,7 +11,9 @@ $ npm install cyberoam --save
 ## Usage
 
 ```js
-const cyberoam = require('cyberoam');
+const Cyberoam = require('cyberoam');
+
+const cyberoam = new Cyberoam();
 
 cyberoam.login(username, password)
   .then(() => { ... })
