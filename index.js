@@ -1,6 +1,9 @@
 const request = require('request');
 const { parseString } = require('xml2js');
 
+const MSG_LOGIN = 'You have successfully logged into JIIT Internet Server.';
+const MSG_LOGOUT = 'You have successfully logged off from JIIT Internet Server.';
+
 class Cyberoam {
   login(username, password) {
     const options = {
@@ -16,11 +19,7 @@ class Cyberoam {
           throw new Error(error);
         }
 
-        if (
-          body.includes(
-            'You have successfully logged into JIIT Internet Server.'
-          )
-        ) {
+        if (body.includes(MSG_LOGIN)) {
           resolve(body);
         } else {
           parseString(body, (err, result) => {
@@ -45,11 +44,7 @@ class Cyberoam {
           throw new Error(error);
         }
 
-        if (
-          body.includes(
-            'You have successfully logged off from JIIT Internet Server.'
-          )
-        ) {
+        if (body.includes(MSG_LOGOUT)) {
           resolve(body);
         } else {
           reject(body);
