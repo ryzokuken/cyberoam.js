@@ -37,27 +37,27 @@ You may wish to provide any of the following options when creating an object of 
 
 1. `loginURL`
 
-> The URL for the login/logout page at cyberoam.
+  > The URL for the login/logout page at cyberoam.
 
-**Default Value**: `"http://172.16.68.6:8090/login.xml"`
+  **Default Value**: `"http://172.16.68.6:8090/login.xml"`
 
 2. `liveURL`
 
-> The URL for the live page at cyberoam.
+  > The URL for the live page at cyberoam.
 
-**Default Value**: `"http://172.16.68.6:8090/live"`
+  **Default Value**: `"http://172.16.68.6:8090/live"`
 
 3. `loginMessage`
 
-> The message that is returned upon successful login.
+  > The message that is returned upon successful login.
 
-**Default Value**: `"You have successfully logged into JIIT Internet Server.`
+  **Default Value**: `"You have successfully logged into JIIT Internet Server.`
 
 4. `logoutMessage`
 
-> The message that is returned upon successful login.
+  > The message that is returned upon successful login.
 
-**Default Value**: `"You have successfully logged off from JIIT Internet Server."`
+  **Default Value**: `"You have successfully logged off from JIIT Internet Server."`
 
 ## Setup (for contributors)
 
