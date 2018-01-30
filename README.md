@@ -22,7 +22,7 @@ cyberoam.login(username, password)
   .then(() => { ... })
   .catch((errorMessage) => { ... });
 
-cyberoam.logout(state.username)
+cyberoam.logout(username)
   .then(() => { ... })
   .catch((errorMessage) => { ... });
 
