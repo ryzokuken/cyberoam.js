@@ -19,7 +19,13 @@ class Cyberoam {
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
         if (error) {
-          throw new Error(error);
+          if (error.code === "ENETUNREACH") {
+            return reject(
+              "Could not reach Cyberoam. Check your network and try again.",
+            );
+          } else {
+            throw error;
+          }
         }
 
         if (body.includes(this.options.loginMessage)) {
@@ -44,7 +50,13 @@ class Cyberoam {
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
         if (error) {
-          throw new Error(error);
+          if (error.code === "ENETUNREACH") {
+            return reject(
+              "Could not reach Cyberoam. Check your network and try again.",
+            );
+          } else {
+            throw error;
+          }
         }
 
         if (body.includes(this.options.logoutMessage)) {
@@ -65,7 +77,15 @@ class Cyberoam {
 
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
-        if (error) throw new Error(error);
+        if (error) {
+          if (error.code === "ENETUNREACH") {
+            return reject(
+              "Could not reach Cyberoam. Check your network and try again.",
+            );
+          } else {
+            throw error;
+          }
+        }
 
         if (body.includes("ack")) {
           resolve();
