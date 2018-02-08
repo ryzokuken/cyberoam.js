@@ -1,7 +1,7 @@
-const request = require('request');
-const { parseString } = require('xml2js');
+const request = require("request");
+const { parseString } = require("xml2js");
 
-const defaults = require('./defaults.json');
+const defaults = require("./defaults.json");
 
 class Cyberoam {
   constructor(options) {
@@ -10,10 +10,10 @@ class Cyberoam {
 
   login(username, password) {
     const options = {
-      method: 'POST',
+      method: "POST",
       url: this.options.loginURL,
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      form: { mode: '191', username, password }
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      form: { mode: "191", username, password },
     };
 
     return new Promise((resolve, reject) => {
@@ -35,10 +35,10 @@ class Cyberoam {
 
   logout(username, password) {
     const options = {
-      method: 'POST',
+      method: "POST",
       url: this.options.loginURL,
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      form: { mode: '193', username }
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+      form: { mode: "193", username },
     };
 
     return new Promise((resolve, reject) => {
@@ -58,16 +58,16 @@ class Cyberoam {
 
   checkLiveStatus(username) {
     const options = {
-      method: 'GET',
+      method: "GET",
       url: this.options.liveURL,
-      qs: { mode: '192', username }
+      qs: { mode: "192", username },
     };
 
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
         if (error) throw new Error(error);
 
-        if (body.includes('ack')) {
+        if (body.includes("ack")) {
           resolve();
         } else {
           reject();
