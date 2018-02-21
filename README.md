@@ -35,31 +35,31 @@ cyberoam.checkLiveStatus(username)
 
 You may wish to provide any of the following options when creating an object of type Cyberoam. Any options skipped out will be replaced by their respective default values.
 
-1. `loginURL`
+1. `loginURL: String`
 
   > The URL for the login/logout page at cyberoam.
 
   **Default Value**: `"http://172.16.68.6:8090/login.xml"`
 
-2. `liveURL`
+2. `liveURL: String`
 
   > The URL for the live page at cyberoam.
 
   **Default Value**: `"http://172.16.68.6:8090/live"`
 
-3. `loginMessage`
+3. `loginMessage: String`
 
   > The message that is returned upon successful login.
 
   **Default Value**: `"You have successfully logged into JIIT Internet Server.`
 
-4. `logoutMessage`
+4. `logoutMessage: String`
 
   > The message that is returned upon successful login.
 
   **Default Value**: `"You have successfully logged off from JIIT Internet Server."`
 
-5. `commonOptions`
+5. `commonOptions: Object`
 
   > The common options that are passed to each call to the request function
 
