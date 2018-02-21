@@ -2,5 +2,9 @@
   "loginURL": "http://172.16.68.6:8090/login.xml",
   "liveURL": "http://172.16.68.6:8090/live",
   "loginMessage": "You have successfully logged into JIIT Internet Server.",
-  "logoutMessage": "You have successfully logged off from JIIT Internet Server."
+  "logoutMessage":
+    "You have successfully logged off from JIIT Internet Server.",
+  "commonOptions": {
+    "timeout": 1000
+  }
 }
