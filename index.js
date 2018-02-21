@@ -3,6 +3,10 @@ const { parseString } = require("xml2js");
 
 const defaults = require("./defaults.json");
 
+const commonOptions = {
+  timeout: 1000,
+};
+
 function getErrorMessage(error) {
   if (error) {
     switch (error.code) {
@@ -23,6 +27,7 @@ class Cyberoam {
 
   login(username, password) {
     const options = {
+      ...commonOptions,
       method: "POST",
       url: this.options.loginURL,
       headers: { "content-type": "application/x-www-form-urlencoded" },
@@ -48,6 +53,7 @@ class Cyberoam {
 
   logout(username, password) {
     const options = {
+      ...commonOptions,
       method: "POST",
       url: this.options.loginURL,
       headers: { "content-type": "application/x-www-form-urlencoded" },
@@ -71,6 +77,7 @@ class Cyberoam {
 
   checkLiveStatus(username) {
     const options = {
+      ...commonOptions,
       method: "GET",
       url: this.options.liveURL,
       qs: { mode: "192", username },
