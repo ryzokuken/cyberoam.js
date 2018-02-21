@@ -59,6 +59,18 @@ You may wish to provide any of the following options when creating an object of 
 
   **Default Value**: `"You have successfully logged off from JIIT Internet Server."`
 
+5. `commonOptions`
+
+  > The common options that are passed to each call to the request function
+
+  **Default Value**:
+
+  ```json
+    {
+      timeout: 1000
+    }
+  ```
+
 ## Setup (for contributors)
 
 ```
