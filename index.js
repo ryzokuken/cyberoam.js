@@ -18,7 +18,7 @@ function getErrorMessage(error) {
 
 class Cyberoam {
   constructor(options) {
-    this.options = Object.assign({}, defaults, options);
+    this.options = { ...defaults, ...options };
   }
 
   login(username, password) {
