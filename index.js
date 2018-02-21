@@ -37,12 +37,11 @@ class Cyberoam {
         }
 
         if (body.includes(this.options.loginMessage)) {
-          resolve(body);
-        } else {
-          parseString(body, (err, result) => {
-            reject(result.requestresponse.message[0]);
-          });
+          return resolve(body);
         }
+        parseString(body, (err, result) => {
+          return reject(result.requestresponse.message[0]);
+        });
       });
     });
   }
@@ -63,10 +62,9 @@ class Cyberoam {
         }
 
         if (body.includes(this.options.logoutMessage)) {
-          resolve(body);
-        } else {
-          reject(body);
+          return resolve(body);
         }
+        reject(body);
       });
     });
   }
@@ -86,10 +84,9 @@ class Cyberoam {
         }
 
         if (body.includes("ack")) {
-          resolve();
-        } else {
-          reject();
+          return resolve();
         }
+        return reject();
       });
     });
   }
