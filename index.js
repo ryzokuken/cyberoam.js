@@ -3,6 +3,19 @@ const { parseString } = require("xml2js");
 
 const defaults = require("./defaults.json");
 
+function getErrorMessage(error) {
+  if (error) {
+    switch (error.code) {
+      case "ENETUNREACH":
+        return "You're not connected to a network. Check your connection and try again.";
+      case "ETIMEDOUT":
+        return "You're not connected to Cyberoam. Check your network and try again.";
+      default:
+        throw error;
+    }
+  }
+}
+
 class Cyberoam {
   constructor(options) {
     this.options = Object.assign({}, defaults, options);
@@ -18,14 +31,9 @@ class Cyberoam {
 
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
-        if (error) {
-          if (error.code === "ENETUNREACH") {
-            return reject(
-              "Could not reach Cyberoam. Check your network and try again.",
-            );
-          } else {
-            throw error;
-          }
+        const msg = getErrorMessage(error);
+        if (msg) {
+          return reject(msg);
         }
 
         if (body.includes(this.options.loginMessage)) {
@@ -49,14 +57,9 @@ class Cyberoam {
 
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
-        if (error) {
-          if (error.code === "ENETUNREACH") {
-            return reject(
-              "Could not reach Cyberoam. Check your network and try again.",
-            );
-          } else {
-            throw error;
-          }
+        const msg = getErrorMessage(error);
+        if (msg) {
+          return reject(msg);
         }
 
         if (body.includes(this.options.logoutMessage)) {
@@ -77,14 +80,9 @@ class Cyberoam {
 
     return new Promise((resolve, reject) => {
       request(options, (error, response, body) => {
-        if (error) {
-          if (error.code === "ENETUNREACH") {
-            return reject(
-              "Could not reach Cyberoam. Check your network and try again.",
-            );
-          } else {
-            throw error;
-          }
+        const msg = getErrorMessage(error);
+        if (msg) {
+          return reject(msg);
         }
 
         if (body.includes("ack")) {
