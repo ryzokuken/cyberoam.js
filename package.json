@@ -4,7 +4,8 @@
   "description": "A JavaScript library for accessing cyberoam",
   "main": "index.js",
   "dependencies": {
-    "request": "^2.83.0",
+    "es6-promise": "^4.2.5",
+    "isomorphic-fetch": "^2.2.1",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
@@ -22,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/ryzokuken/cyberoam.js/issues"
   },
-  "homepage": "https://github.com/ryzokuken/cyberoam.js#readme"
+  "homepage": "https://github.com/ryzokuken/cyberoam.js#readme",
+  "keywords": []
 }
